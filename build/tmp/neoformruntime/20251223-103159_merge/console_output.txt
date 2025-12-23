@@ -1,0 +1,18 @@
+--------------------------------------------------------------------------------
+
+Command-Line:
+ - /opt/homebrew/Cellar/openjdk@17/17.0.17/libexec/openjdk.jdk/Contents/Home/bin/java
+ - -jar
+ - /Users/kcw/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mergetool/1.1.7/3d41564f78f123d64573cae7948014baf3aaba3f/mergetool-1.1.7-fatjar.jar
+ - --client
+ - /Users/kcw/.gradle/caches/neoformruntime/intermediate_results/stripClient_b36469b365ede4c623eb54de2136543f835680dc_output.jar
+ - --server
+ - /Users/kcw/.gradle/caches/neoformruntime/intermediate_results/stripServer_0b185fd84b0c1139046b2116f67ab4fec60a79c4_output.jar
+ - --ann
+ - 1.20.1
+ - --output
+ - ./output.jar
+ - --inject
+ - false
+--------------------------------------------------------------------------------
+

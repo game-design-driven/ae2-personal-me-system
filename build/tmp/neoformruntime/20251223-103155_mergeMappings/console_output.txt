@@ -1,0 +1,29 @@
+--------------------------------------------------------------------------------
+
+Command-Line:
+ - /opt/homebrew/Cellar/openjdk@17/17.0.17/libexec/openjdk.jdk/Contents/Home/bin/java
+ - -jar
+ - /Users/kcw/.gradle/caches/neoformruntime/artifacts/net/minecraftforge/installertools/1.2.0/installertools-1.2.0-fatjar.jar
+ - --task
+ - MERGE_MAPPING
+ - --left
+ - config/joined.tsrg
+ - --right
+ - /Users/kcw/.gradle/caches/neoformruntime/artifacts/minecraft_1.20.1_client_mappings.txt
+ - --right-names
+ - right,left
+ - --classes
+ - --output
+ - ./output.tsrg
+--------------------------------------------------------------------------------
+
+Task: MERGE_MAPPING
+Left:    config/joined.tsrg
+         null
+Right:   /Users/kcw/.gradle/caches/neoformruntime/artifacts/minecraft_1.20.1_client_mappings.txt
+         right,left
+Classes: true
+Fields:  false
+Methods: false
+Params:  false
+Output:  ./output.tsrg
