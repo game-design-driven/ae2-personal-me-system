@@ -37,8 +37,8 @@ jobs:
           modrinth-id: ae2-personal-me-system
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
 
-          # curseforge-id: UPDATE_ME
-          # curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          curseforge-id: 1411894
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           files: |
             build/libs/!(*-@(sources|dev)).jar
