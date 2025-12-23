@@ -1,7 +1,7 @@
-package com.example.personalmesystem.network;
+package com.yardenzamir.personalmesystem.network;
 
-import com.example.personalmesystem.PersonalMESystemMod;
-import com.example.personalmesystem.item.PersonalWirelessTerminalItem;
+import com.yardenzamir.personalmesystem.PersonalMESystemMod;
+import com.yardenzamir.personalmesystem.item.PersonalWirelessTerminalItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.GlobalPos;
 import net.minecraft.nbt.NbtOps;

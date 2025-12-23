@@ -1,9 +1,9 @@
-package com.example.personalmesystem.network;
+package com.yardenzamir.personalmesystem.network;
 
 import appeng.menu.MenuOpener;
 import appeng.menu.locator.MenuLocators;
-import com.example.personalmesystem.item.PersonalWirelessTerminalItem;
-import com.example.personalmesystem.menu.CuriosMenuLocator;
+import com.yardenzamir.personalmesystem.item.PersonalWirelessTerminalItem;
+import com.yardenzamir.personalmesystem.menu.CuriosMenuLocator;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;

@@ -1,13 +1,13 @@
-package com.example.personalmesystem.client;
+package com.yardenzamir.personalmesystem.client;
 
 import appeng.blockentity.networking.WirelessAccessPointBlockEntity;
 import appeng.client.gui.implementations.WirelessAccessPointScreen;
 import appeng.menu.implementations.WirelessAccessPointMenu;
-import com.example.personalmesystem.PersonalMESystemMod;
-import com.example.personalmesystem.item.PersonalWirelessTerminalItem;
-import com.example.personalmesystem.network.BindPersonalMEPacket;
-import com.example.personalmesystem.network.NetworkHandler;
-import com.example.personalmesystem.network.OpenPersonalMEPacket;
+import com.yardenzamir.personalmesystem.PersonalMESystemMod;
+import com.yardenzamir.personalmesystem.item.PersonalWirelessTerminalItem;
+import com.yardenzamir.personalmesystem.network.BindPersonalMEPacket;
+import com.yardenzamir.personalmesystem.network.NetworkHandler;
+import com.yardenzamir.personalmesystem.network.OpenPersonalMEPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;

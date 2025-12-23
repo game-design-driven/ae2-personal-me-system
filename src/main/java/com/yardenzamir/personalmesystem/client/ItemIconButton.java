@@ -1,4 +1,4 @@
-package com.example.personalmesystem.client;
+package com.yardenzamir.personalmesystem.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;

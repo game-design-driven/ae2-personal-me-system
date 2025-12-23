@@ -11,6 +11,7 @@ An AE2 addon that provides a wearable personal terminal that replaces your inven
 
 ## Usage
 
+
 1. Obtain a Personal Wireless Terminal with
 2. Equip it in a Curios slot (or keep in inventory)
 3. Open a Wireless Access Point and click the bind button in the left toolbar

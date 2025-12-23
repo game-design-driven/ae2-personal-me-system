@@ -1,11 +1,11 @@
-package com.example.personalmesystem;
+package com.yardenzamir.personalmesystem;
 
 import appeng.menu.locator.MenuLocators;
-import com.example.personalmesystem.client.ClientSetup;
-import com.example.personalmesystem.command.PersonalMECommands;
-import com.example.personalmesystem.item.PersonalWirelessTerminalItem;
-import com.example.personalmesystem.menu.CuriosMenuLocator;
-import com.example.personalmesystem.network.NetworkHandler;
+import com.yardenzamir.personalmesystem.client.ClientSetup;
+import com.yardenzamir.personalmesystem.command.PersonalMECommands;
+import com.yardenzamir.personalmesystem.item.PersonalWirelessTerminalItem;
+import com.yardenzamir.personalmesystem.menu.CuriosMenuLocator;
+import com.yardenzamir.personalmesystem.network.NetworkHandler;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;

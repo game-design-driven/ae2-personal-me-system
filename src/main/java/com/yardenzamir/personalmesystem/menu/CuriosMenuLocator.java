@@ -1,4 +1,4 @@
-package com.example.personalmesystem.menu;
+package com.yardenzamir.personalmesystem.menu;
 
 import appeng.api.implementations.menuobjects.IMenuItem;
 import appeng.api.implementations.menuobjects.ItemMenuHost;

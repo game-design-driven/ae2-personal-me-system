@@ -1,11 +1,11 @@
-package com.example.personalmesystem.item;
+package com.yardenzamir.personalmesystem.item;
 
 import appeng.api.implementations.menuobjects.ItemMenuHost;
 import appeng.api.networking.IGrid;
 import appeng.items.tools.powered.WirelessTerminalItem;
 import appeng.menu.MenuOpener;
 import appeng.menu.locator.MenuLocators;
-import com.example.personalmesystem.host.PersonalTerminalMenuHost;
+import com.yardenzamir.personalmesystem.host.PersonalTerminalMenuHost;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;

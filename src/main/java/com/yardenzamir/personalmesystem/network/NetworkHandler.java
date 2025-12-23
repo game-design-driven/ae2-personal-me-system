@@ -1,6 +1,6 @@
-package com.example.personalmesystem.network;
+package com.yardenzamir.personalmesystem.network;
 
-import com.example.personalmesystem.PersonalMESystemMod;
+import com.yardenzamir.personalmesystem.PersonalMESystemMod;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;

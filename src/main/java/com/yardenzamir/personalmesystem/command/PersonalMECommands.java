@@ -1,8 +1,8 @@
-package com.example.personalmesystem.command;
+package com.yardenzamir.personalmesystem.command;
 
 import appeng.api.config.Actionable;
-import com.example.personalmesystem.PersonalMESystemMod;
-import com.example.personalmesystem.item.PersonalWirelessTerminalItem;
+import com.yardenzamir.personalmesystem.PersonalMESystemMod;
+import com.yardenzamir.personalmesystem.item.PersonalWirelessTerminalItem;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import net.minecraft.commands.CommandSourceStack;

@@ -1,4 +1,4 @@
-package com.example.personalmesystem.host;
+package com.yardenzamir.personalmesystem.host;
 
 import appeng.api.networking.IGridNode;
 import appeng.api.stacks.KeyCounter;
