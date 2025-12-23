@@ -35,3 +35,10 @@ description="Replaces player inventory with ME terminal-style interface. Bind to
     versionRange="[5.2.0,)"
     ordering="AFTER"
     side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="fancymenu"
+    mandatory=false
+    versionRange="[3.0.0,)"
+    ordering="AFTER"
+    side="CLIENT"

@@ -1,0 +1,14 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "com.yardenzamir.personalmesystem.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "personalmesystem.refmap.json",
+  "plugin": "com.yardenzamir.personalmesystem.mixin.FancyMenuMixinPlugin",
+  "client": [
+    "FancyMenuScreenCustomizationMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}
