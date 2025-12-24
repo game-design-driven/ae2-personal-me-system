@@ -52,9 +52,9 @@ dependencies {
     compileOnly "top.theillusivec4.curios:curios-forge:5.4.7+1.20.1:api"
     runtimeOnly "top.theillusivec4.curios:curios-forge:5.4.7+1.20.1"
 
-    // FancyMenu (optional compat) - local jars in libs/
-    compileOnly files('libs/fancymenu_forge_3.8.1_MC_1.20.1.jar')
-    compileOnly files('libs/konkrete_forge_1.8.0_MC_1.20-1.20.1.jar')
+    // FancyMenu (optional compat)
+    compileOnly "maven.modrinth:fancymenu:MywA2BxT"
+    compileOnly "maven.modrinth:konkrete:skYziQQL"
 
     // Mixin
     annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
