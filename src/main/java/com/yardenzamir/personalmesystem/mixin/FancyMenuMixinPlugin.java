@@ -12,15 +12,13 @@ import java.util.Set;
  */
 public class FancyMenuMixinPlugin implements IMixinConfigPlugin {
 
-    private static boolean fancyMenuLoaded = false;
+    private static final boolean fancyMenuLoaded;
 
     static {
-        try {
-            Class.forName("de.keksuccino.fancymenu.FancyMenu");
-            fancyMenuLoaded = true;
-        } catch (ClassNotFoundException e) {
-            fancyMenuLoaded = false;
-        }
+        // Check via resource lookup to avoid triggering FancyMenu's static initializer,
+        // which would load Minecraft classes too early and break other mixins.
+        fancyMenuLoaded = FancyMenuMixinPlugin.class.getClassLoader()
+                .getResource("de/keksuccino/fancymenu/FancyMenu.class") != null;
     }
 
     @Override
