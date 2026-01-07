@@ -6,7 +6,7 @@ license="MIT"
 modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
-description="Replaces player inventory with ME terminal-style interface. Bind to a Wireless Access Point to access your ME network from anywhere in range."
+description="Personal ME Terminal that replaces inventory with ME interface, and Communication Relay blocks for defining virtual crafting recipes."
 
 [[dependencies.${mod_id}]]
     modId="forge"
