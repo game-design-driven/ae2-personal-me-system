@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.10] - 2026-01-07
+### :sparkles: New Features
+- [`93e787b`](https://github.com/game-design-driven/ae2-personal-me-system/commit/93e787b34d1d721db56dc5ee15b5c923e725b166) - add create blacklist removal *(commit by [@Yarden-zamir](https://github.com/Yarden-zamir))*
+
+
 ## [0.0.9] - 2026-01-07
 ### :bug: Bug Fixes
 - [`5895b24`](https://github.com/game-design-driven/ae2-personal-me-system/commit/5895b244e31735e6d0a0f22004393727faef242d) - if opening inventory early doesn't open terminal *(commit by [@Yarden-zamir](https://github.com/Yarden-zamir))*
@@ -30,3 +35,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.0.7]: https://github.com/game-design-driven/ae2-personal-me-system/compare/0.0.6...0.0.7
 [0.0.8]: https://github.com/game-design-driven/ae2-personal-me-system/compare/0.0.7...0.0.8
 [0.0.9]: https://github.com/game-design-driven/ae2-personal-me-system/compare/0.0.8...0.0.9
+[0.0.10]: https://github.com/game-design-driven/ae2-personal-me-system/compare/0.0.9...0.0.10
