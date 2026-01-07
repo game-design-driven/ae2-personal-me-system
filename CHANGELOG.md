@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.9] - 2026-01-07
+### :bug: Bug Fixes
+- [`5895b24`](https://github.com/game-design-driven/ae2-personal-me-system/commit/5895b244e31735e6d0a0f22004393727faef242d) - if opening inventory early doesn't open terminal *(commit by [@Yarden-zamir](https://github.com/Yarden-zamir))*
+
+
 ## [0.0.8] - 2026-01-07
 ### :sparkles: New Features
 - [`e62066e`](https://github.com/game-design-driven/ae2-personal-me-system/commit/e62066e2446a818b19442b054d91f8d5b5c55c96) - add virtual recipe system using communication relays *(commit by [@Yarden-zamir](https://github.com/Yarden-zamir))*
@@ -24,3 +29,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.0.6]: https://github.com/game-design-driven/ae2-personal-me-system/compare/0.0.5...0.0.6
 [0.0.7]: https://github.com/game-design-driven/ae2-personal-me-system/compare/0.0.6...0.0.7
 [0.0.8]: https://github.com/game-design-driven/ae2-personal-me-system/compare/0.0.7...0.0.8
+[0.0.9]: https://github.com/game-design-driven/ae2-personal-me-system/compare/0.0.8...0.0.9
