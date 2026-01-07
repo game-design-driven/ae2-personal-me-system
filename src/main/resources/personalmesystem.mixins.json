@@ -5,8 +5,12 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "personalmesystem.refmap.json",
   "plugin": "com.yardenzamir.personalmesystem.mixin.FancyMenuMixinPlugin",
+  "mixins": [
+    "CraftingServiceSubmitMixin"
+  ],
   "client": [
-    "FancyMenuScreenCustomizationMixin"
+    "FancyMenuScreenCustomizationMixin",
+    "CraftConfirmScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 0

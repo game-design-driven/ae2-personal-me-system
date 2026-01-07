@@ -5,10 +5,12 @@ import appeng.client.gui.implementations.WirelessAccessPointScreen;
 import appeng.menu.implementations.WirelessAccessPointMenu;
 import com.yardenzamir.personalmesystem.PersonalMESystemMod;
 import com.yardenzamir.personalmesystem.item.PersonalWirelessTerminalItem;
+import com.yardenzamir.personalmesystem.menu.CommunicationRelayMenu;
 import com.yardenzamir.personalmesystem.network.BindPersonalMEPacket;
 import com.yardenzamir.personalmesystem.network.NetworkHandler;
 import com.yardenzamir.personalmesystem.network.OpenPersonalMEPacket;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.ScreenEvent;
@@ -16,13 +18,21 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import top.theillusivec4.curios.api.CuriosApi;
 
 public class ClientSetup {
 
     public static void init() {
-        PersonalMESystemMod.LOGGER.info("[PersonalME] ClientSetup.init()");
         MinecraftForge.EVENT_BUS.register(ClientSetup.class);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientSetup::onClientSetup);
+    }
+
+    public static void onClientSetup(FMLClientSetupEvent event) {
+        event.enqueueWork(() -> {
+            MenuScreens.register(CommunicationRelayMenu.TYPE.get(), CommunicationRelayScreen::new);
+        });
     }
 
     private static Boolean cachedHasTerminal = null;
@@ -95,7 +105,7 @@ public class ClientSetup {
         ItemIconButton bindButton = new ItemIconButton(
                 x, y, buttonSize,
                 terminalIcon,
-                Component.literal("Bind to personal ME system"),
+                Component.translatable("gui.personalmesystem.bind_to_wap"),
                 btn -> NetworkHandler.sendToServer(new BindPersonalMEPacket(wapPos))
         );
 

@@ -6,6 +6,7 @@ import appeng.items.tools.powered.WirelessTerminalItem;
 import appeng.menu.MenuOpener;
 import appeng.menu.locator.MenuLocators;
 import com.yardenzamir.personalmesystem.host.PersonalTerminalMenuHost;
+import com.yardenzamir.personalmesystem.menu.CuriosMenuLocator;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -15,6 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
+import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
@@ -75,11 +77,40 @@ public class PersonalWirelessTerminalItem extends WirelessTerminalItem implement
         Integer slot = inventorySlot >= 0 ? inventorySlot : null;
         return new PersonalTerminalMenuHost(player, slot, stack,
                 (p, subMenu) -> {
-                    // Only try to reopen from inventory if we have a valid slot
                     if (slot != null) {
+                        // Item is in player inventory - reopen from there
                         openFromInventory(p, slot, true);
+                    } else {
+                        // Item is in Curios - find it and reopen from there
+                        openFromCurios(p);
                     }
                 });
+    }
+
+    /**
+     * Try to open the terminal from a Curios slot by searching for it.
+     */
+    private void openFromCurios(Player player) {
+        var curiosOpt = CuriosApi.getCuriosInventory(player).resolve();
+        if (curiosOpt.isEmpty()) {
+            return;
+        }
+
+        var curios = curiosOpt.get();
+        // Search all curios slots for our terminal
+        for (var handler : curios.getCurios().entrySet()) {
+            var slotType = handler.getKey();
+            var stacks = handler.getValue().getStacks();
+            for (int i = 0; i < stacks.getSlots(); i++) {
+                var stack = stacks.getStackInSlot(i);
+                if (stack.getItem() == this) {
+                    // Found it - open from this slot
+                    var locator = new CuriosMenuLocator(slotType, i);
+                    MenuOpener.open(getMenuType(), player, locator, true);
+                    return;
+                }
+            }
+        }
     }
 
     // ICurioItem implementation

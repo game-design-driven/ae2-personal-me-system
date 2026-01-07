@@ -1,6 +1,5 @@
 package com.yardenzamir.personalmesystem.network;
 
-import com.yardenzamir.personalmesystem.PersonalMESystemMod;
 import com.yardenzamir.personalmesystem.item.PersonalWirelessTerminalItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.GlobalPos;
@@ -39,22 +38,18 @@ public class BindPersonalMEPacket {
             ServerPlayer player = ctx.get().getSender();
             if (player == null) return;
 
-            // Find Personal Terminal in Curios or inventory
             ItemStack terminal = findPersonalTerminal(player);
             if (terminal == null || terminal.isEmpty()) {
-                player.displayClientMessage(Component.literal("No Personal Terminal found"), true);
-                PersonalMESystemMod.LOGGER.warn("[PersonalME] No terminal found for binding");
+                player.displayClientMessage(Component.translatable("gui.personalmesystem.no_terminal"), true);
                 return;
             }
 
-            // Link directly by writing GlobalPos to NBT (same as WirelessTerminalItem)
             GlobalPos globalPos = GlobalPos.of(player.level().dimension(), msg.wapPos);
             GlobalPos.CODEC.encodeStart(NbtOps.INSTANCE, globalPos)
                     .result()
                     .ifPresent(tag -> terminal.getOrCreateTag().put(TAG_ACCESS_POINT, tag));
 
-            player.displayClientMessage(Component.literal("Personal Terminal linked!"), true);
-            PersonalMESystemMod.LOGGER.info("[PersonalME] Linked terminal to WAP at {}", msg.wapPos);
+            player.displayClientMessage(Component.translatable("gui.personalmesystem.bound_success"), true);
         });
         ctx.get().setPacketHandled(true);
     }

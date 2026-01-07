@@ -1,5 +1,6 @@
 package com.yardenzamir.personalmesystem.host;
 
+import appeng.api.networking.IGrid;
 import appeng.api.networking.IGridNode;
 import appeng.api.stacks.KeyCounter;
 import appeng.api.storage.MEStorage;
@@ -34,9 +35,27 @@ public class PersonalTerminalMenuHost extends WirelessTerminalMenuHost {
         }
     };
 
+    // Cache grid reference at construction for thread-safe access during crafting calculations
+    @Nullable
+    private final IGrid cachedGrid;
+    @Nullable
+    private final IGridNode cachedGridNode;
+
     public PersonalTerminalMenuHost(Player player, @Nullable Integer slot, ItemStack itemStack,
                                     BiConsumer<Player, appeng.menu.ISubMenu> returnToMainMenu) {
         super(player, slot, itemStack, returnToMainMenu);
+        // Cache grid at construction time (on main thread) for thread-safe access later
+        this.cachedGrid = computeTargetGrid(player, itemStack);
+        this.cachedGridNode = cachedGrid != null ? cachedGrid.getPivot() : null;
+    }
+
+    @Nullable
+    private static IGrid computeTargetGrid(Player player, ItemStack itemStack) {
+        var item = itemStack.getItem();
+        if (item instanceof appeng.items.tools.powered.WirelessTerminalItem terminal) {
+            return terminal.getLinkedGrid(itemStack, player.level(), null);
+        }
+        return null;
     }
 
     @Override
@@ -61,13 +80,8 @@ public class PersonalTerminalMenuHost extends WirelessTerminalMenuHost {
 
     @Override
     public IGridNode getActionableNode() {
-        // Skip range check in parent, just return the grid node if bound
-        var grid = getTargetGrid();
-        if (grid != null) {
-            // Return any active node from the grid
-            return grid.getPivot();
-        }
-        return null;
+        // Return cached grid node for thread-safe access during crafting calculations
+        return cachedGridNode;
     }
 
     @Override
@@ -77,12 +91,8 @@ public class PersonalTerminalMenuHost extends WirelessTerminalMenuHost {
     }
 
     @Nullable
-    private appeng.api.networking.IGrid getTargetGrid() {
-        // Access the targetGrid field from parent via the terminal item
-        var item = getItemStack().getItem();
-        if (item instanceof appeng.items.tools.powered.WirelessTerminalItem terminal) {
-            return terminal.getLinkedGrid(getItemStack(), getPlayer().level(), null);
-        }
-        return null;
+    private IGrid getTargetGrid() {
+        // Use cached grid for thread-safe access
+        return cachedGrid;
     }
 }

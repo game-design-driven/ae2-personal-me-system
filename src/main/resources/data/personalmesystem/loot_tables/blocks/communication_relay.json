@@ -1,0 +1,43 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "personalmesystem:communication_relay",
+          "functions": [
+            {
+              "function": "minecraft:copy_nbt",
+              "source": "block_entity",
+              "ops": [
+                {
+                  "source": "virtual_recipes",
+                  "target": "BlockEntityTag.virtual_recipes",
+                  "op": "replace"
+                },
+                {
+                  "source": "CustomName",
+                  "target": "BlockEntityTag.CustomName",
+                  "op": "replace"
+                },
+                {
+                  "source": "Description",
+                  "target": "BlockEntityTag.Description",
+                  "op": "replace"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}
