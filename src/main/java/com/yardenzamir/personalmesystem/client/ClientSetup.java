@@ -11,11 +11,11 @@ import com.yardenzamir.personalmesystem.network.NetworkHandler;
 import com.yardenzamir.personalmesystem.network.OpenPersonalMEPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -35,38 +35,20 @@ public class ClientSetup {
         });
     }
 
-    private static Boolean cachedHasTerminal = null;
-    private static int cacheTickCounter = 0;
-
-    @SubscribeEvent(priority = EventPriority.HIGH)
-    public static void onClientTick(TickEvent.ClientTickEvent event) {
-        if (event.phase != TickEvent.Phase.START) {
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void onScreenOpening(ScreenEvent.Opening event) {
+        if (!(event.getScreen() instanceof InventoryScreen)) {
             return;
         }
 
         Minecraft mc = Minecraft.getInstance();
-        if (mc.player == null || mc.screen != null) {
-            cachedHasTerminal = null; // Reset cache when screen changes
+        if (!hasPersonalTerminal(mc)) {
             return;
         }
 
-        // Check if inventory key is being pressed
-        if (!mc.options.keyInventory.isDown()) {
-            return;
-        }
-
-        // Cache the terminal check for 20 ticks (1 second) to avoid lag
-        cacheTickCounter++;
-        if (cachedHasTerminal == null || cacheTickCounter >= 20) {
-            cachedHasTerminal = hasPersonalTerminal(mc);
-            cacheTickCounter = 0;
-        }
-
-        // Only intercept if player has Personal Terminal
-        if (cachedHasTerminal && mc.options.keyInventory.consumeClick()) {
-            NetworkHandler.sendToServer(new OpenPersonalMEPacket());
-        }
-        // If no terminal, don't consume - vanilla handles it
+        // Cancel vanilla inventory and open ME terminal instead
+        event.setCanceled(true);
+        NetworkHandler.sendToServer(new OpenPersonalMEPacket());
     }
 
     @SubscribeEvent
@@ -75,13 +57,11 @@ public class ClientSetup {
             return;
         }
 
-        // Only show button if player has a Personal Terminal
         Minecraft mc = Minecraft.getInstance();
         if (!hasPersonalTerminal(mc)) {
             return;
         }
 
-        // Get the WAP position from the menu
         WirelessAccessPointMenu menu = wapScreen.getMenu();
         var host = menu.getBlockEntity();
         if (!(host instanceof WirelessAccessPointBlockEntity wap)) {
@@ -90,13 +70,6 @@ public class ClientSetup {
 
         var wapPos = wap.getBlockPos();
 
-        // Position in the left toolbar, below existing buttons
-        // From common.json: verticalToolbar at left: -2, top: 6
-        // VerticalButtonBar uses MARGIN=2, VERTICAL_SPACING=4
-        // Button X = guiLeft + (-2) - 2 - 16 = guiLeft - 20
-        // First button Y = guiTop + 6 + 2 = guiTop + 8
-        // Each subsequent button: +16 (height) + 4 (spacing) = +20
-        // WAP has 2 buttons (help, power unit), so ours is at Y = guiTop + 8 + 20*2
         int buttonSize = 16;
         int x = wapScreen.getGuiLeft() - 20;
         int y = wapScreen.getGuiTop() + 8 + 20 * 2;
