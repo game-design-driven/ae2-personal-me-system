@@ -2,6 +2,10 @@
 
 An AE2 addon that provides a wearable personal terminal to replace inventory and configurable virtual autocrafting recipes through a new communication_relay block.
 
+## Reason
+Replacing the vanilla player inventory with an ME system in modpacks traditionally requires extensive configuration and workarounds. This mod streamlines the entire process: equip players with a Personal Terminal in their Curios slot (pre-linked or user-bindable), and they gain direct access to the ME system.
+
+Created for the modpack [Prepare to Dye 2](https://github.com/game-design-driven/create-prepare-to-dye-2).
 ## Features
 
 ### Personal Wireless Terminal
