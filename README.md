@@ -1,12 +1,12 @@
 # AE2 Personal ME System
 
-An AE2 addon that provides a wearable personal terminal and configurable virtual crafting recipes.
+An AE2 addon that provides a wearable personal terminal to replace inventory and configurable virtual autocrafting recipes through a new communication_relay block.
 
 ## Features
 
 ### Personal Wireless Terminal
 - Wearable wireless terminal (Curios slot or inventory)
-- Press inventory key (E) to open ME terminal instead of vanilla inventory
+- Press inventory key to open ME terminal instead of vanilla inventory
 - Bind directly from Wireless Access Point GUI
 - Infinite range when bound
 
