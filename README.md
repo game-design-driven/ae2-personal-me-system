@@ -94,3 +94,4 @@ ServerEvents.commandRegistry(event => {
 ## License
 
 MIT
+
