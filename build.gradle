@@ -50,8 +50,8 @@ dependencies {
     implementation "maven.modrinth:ae2:7KVs6HMQ"
 
     // Curios API
-    compileOnly "top.theillusivec4.curios:curios-forge:5.4.7+1.20.1:api"
-    runtimeOnly "top.theillusivec4.curios:curios-forge:5.4.7+1.20.1"
+    compileOnly "top.theillusivec4.curios:curios-forge:8.1.0+:api"
+    runtimeOnly "top.theillusivec4.curios:curios-forge:8.1.0+"
 
     // FancyMenu (optional compat)
     compileOnly "maven.modrinth:fancymenu:MywA2BxT"
