@@ -42,3 +42,11 @@ description="Personal ME Terminal that replaces inventory with ME interface, and
     versionRange="[3.0.0,)"
     ordering="AFTER"
     side="CLIENT"
+
+[mc-publish]
+modrinth = "8bfAOFcs"
+curseforge = 1411894
+loader = "forge"
+mc_version = "1.20.1"
+modrinth_slug = "ae2-personal-me-system"
+curseforge_slug = "ae2-personal-me-system"
