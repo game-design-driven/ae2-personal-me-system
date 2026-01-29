@@ -9,39 +9,39 @@ displayName="${mod_name}"
 description="Personal ME Terminal that replaces inventory with ME interface, and Communication Relay blocks for defining virtual crafting recipes."
 
 [[dependencies.${mod_id}]]
-    modId="forge"
-    mandatory=true
-    versionRange="${forge_version_range}"
-    ordering="NONE"
-    side="BOTH"
+modId="forge"
+mandatory=true
+versionRange="${forge_version_range}"
+ordering="NONE"
+side="BOTH"
 
 [[dependencies.${mod_id}]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="${minecraft_version_range}"
-    ordering="NONE"
-    side="BOTH"
+modId="minecraft"
+mandatory=true
+versionRange="${minecraft_version_range}"
+ordering="NONE"
+side="BOTH"
 
 [[dependencies.${mod_id}]]
-    modId="ae2"
-    mandatory=true
-    versionRange="[15.0.0,)"
-    ordering="AFTER"
-    side="BOTH"
+modId="ae2"
+mandatory=true
+versionRange="[15.4.10,)"
+ordering="AFTER"
+side="BOTH"
 
 [[dependencies.${mod_id}]]
-    modId="curios"
-    mandatory=true
-    versionRange="[5.2.0,)"
-    ordering="AFTER"
-    side="BOTH"
+modId="curios"
+mandatory=true
+versionRange="[5.2.0,)"
+ordering="AFTER"
+side="BOTH"
 
 [[dependencies.${mod_id}]]
-    modId="fancymenu"
-    mandatory=false
-    versionRange="[3.0.0,)"
-    ordering="AFTER"
-    side="CLIENT"
+modId="fancymenu"
+mandatory=false
+versionRange="[3.0.0,)"
+ordering="AFTER"
+side="CLIENT"
 
 [mc-publish]
 modrinth = "8bfAOFcs"
